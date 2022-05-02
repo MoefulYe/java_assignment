@@ -3,6 +3,7 @@ package secondHomework.recordKeeping.core;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
+
 public class Account implements AccountFeature {
     private ArrayList<Record> records;
     private double balance;
@@ -38,9 +39,7 @@ public class Account implements AccountFeature {
         updateBalance("in",amountOfMoney);
         this.setRecord("in",this.balance,amountOfMoney,comment,new Date());
     }
-    public void ed
-                    illegalInputException e=new illegalInputException(choice);
-                    e.printStackTrace();itSpendInfo(){
+    public void editSpendInfo(){
         Scanner sc=new Scanner(System.in);
         System.out.println("请输入支出金额:");
         double amountOfMoney=sc.nextDouble();
