@@ -7,7 +7,7 @@ public class Automobile {
     private final double price;
     Automobile() {
         System.out.println("Please input the brand");
-        this.brand=SysConst.INPUT.nextLine();
+        this.brand=SysConst.INPUT.next();
         System.out.println("Please input the price");
         this.price=SysConst.INPUT.nextDouble();
     }

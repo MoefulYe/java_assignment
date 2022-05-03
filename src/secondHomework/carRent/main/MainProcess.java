@@ -14,6 +14,10 @@ public class MainProcess {
         RentSystem rentSystem=new RentSystem(autoList,orders);
         AutomobileManager automobileManager=new AutomobileManager(autoList);
         while(true){
+            System.out.println("------Welcome to the car rent system!------");
+            System.out.println("1.enter Automobile System");
+            System.out.println("2.enter Rent System");
+            System.out.println("3.exit");
             int choice=SysConst.INPUT.nextInt();
             switch (choice) {
                 case 1 -> automobileManager.init();
