@@ -46,7 +46,7 @@ public class DataOperation {
             fis=new FileInputStream(file);
             byte[] bytes=new byte[1024];
             fis.read(bytes);
-            String str= bytes.toString();
+            String str= new String(bytes, "UTF-8");
             System.out.println(str);
             fis.close();
             return str;
@@ -57,9 +57,9 @@ public class DataOperation {
     }
 
     public double getAverage(int col){
-         String[] strs=read().split("|");
+         String[] strs=read().split("\\|");
          ArrayList<Double> nums=new ArrayList<>();
-         for(int i=col;i<strs.length;i+=5){
+         for(int i=col;i<strs.length-1;i+=5){
              nums.add(Double.parseDouble(strs[i]));
          }
          double sum=0;

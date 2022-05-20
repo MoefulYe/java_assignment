@@ -41,7 +41,7 @@ public class DataOperation extends Thread {
     private double[] genRandomData(){
         double[] data=new double[5];
         for (int i=0;i<5;i++){
-            data[i]=Math.random()*10;
+            data[i]=Math.round(Math.random()*1000)/100.0;
         }
         return data;
     }
@@ -53,9 +53,10 @@ public class DataOperation extends Thread {
             for (int i=0;i<ROWS;i++){
                 synchronized (lock){
                     double[] data=genRandomData();
-                    bw.write(data+"\n");
+                    StringBuilder sb=new StringBuilder().append(data[0]).append("|").append(data[1]).append("|").append(data[2]).append("|").append(data[3]).append("|").append(data[4]).append("\n");
+                    bw.write(sb.toString());
                     bw.flush();
-                    System.out.println(Thread.currentThread().getName()+" write "+data);
+                    System.out.print(Thread.currentThread().getName()+" write "+sb.toString());
                 }
                 sleep(5);
             }
@@ -71,8 +72,8 @@ public class DataOperation extends Thread {
             fr=new FileReader(file);
             br=new BufferedReader(fr);
             String line;
-            while ((line=br.readLine())!=null) {
-                System.out.println(line);
+            while ((line=br.readLine())!=null){
+                System.out.println(Thread.currentThread().getName()+" read "+line);
             }
             br.close();
             fr.close();

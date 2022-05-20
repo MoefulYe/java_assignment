@@ -33,7 +33,8 @@ public class DataOperation {
        try{
            fos=new FileOutputStream(file);
            for (String str = readFromKeyBoard(); !str.equals("-1"); str=readFromKeyBoard()){
-                   fos.write(str.getBytes());
+               str+="\n";
+               fos.write(str.getBytes());
            }
            fos.close();
        } catch (IOException e){
@@ -44,11 +45,10 @@ public class DataOperation {
     public void read(){
         try{
             fis=new FileInputStream(file);
-            InputStreamReader isr=new InputStreamReader(fis,"UTF-8");
             byte[] bytes=new byte[1024];
             fis.read(bytes);
-            String str= bytes.toString();
-            System.out.println(str);
+            String str= new String(bytes, "UTF-8");
+            System.out.print(str);
             fis.close();
         } catch (IOException e){
             e.printStackTrace();
@@ -61,8 +61,8 @@ public class DataOperation {
             bis=new BufferedInputStream(fis);
             byte[] bytes=new byte[1024];
             bis.read(bytes);
-            String str= bytes.toString();
-            System.out.println(str);
+            String str= new String(bytes, "UTF-8");
+            System.out.print(str);
             bis.close();
             fis.close();
         } catch (IOException e) {
@@ -75,7 +75,9 @@ public class DataOperation {
             fos=new FileOutputStream(file);
             bos=new BufferedOutputStream(fos);
             for (String str = readFromKeyBoard(); !str.equals("-1"); str=readFromKeyBoard()){
+                str+="\n";
                 bos.write(str.getBytes());
+                bos.flush();
             }
             bos.close();
             fos.close();
