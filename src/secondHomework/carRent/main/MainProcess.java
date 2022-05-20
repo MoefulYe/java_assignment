@@ -20,13 +20,18 @@ public class MainProcess {
             System.out.println("3.exit");
             int choice=SysConst.INPUT.nextInt();
             switch (choice) {
-                case 1 -> automobileManager.init();
-                case 2 -> rentSystem.init();
-                case 3 -> {
+                case 1:
+                    automobileManager.init();
+                    break;
+                case 2:
+                    rentSystem.init();
+                    break;
+                case 3 :
                     System.out.println("Bye!");
                     System.exit(0);
-                }
-                default -> System.out.println("Please input the correct number!");
+                    break;
+                default:
+                    System.out.println("Please input the correct number!");
             }
         }
     }
