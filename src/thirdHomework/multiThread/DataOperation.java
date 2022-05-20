@@ -74,6 +74,7 @@ public class DataOperation extends Thread {
             while ((line=br.readLine())!=null) {
                 System.out.println(line);
             }
+            br.close();
             fr.close();
         } catch (IOException e) {
             e.printStackTrace();
